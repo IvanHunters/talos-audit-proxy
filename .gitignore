@@ -1,0 +1,5 @@
+/talos-audit-proxy
+/dist/
+*.test
+*.out
+*.log
