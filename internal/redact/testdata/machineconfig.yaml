@@ -1,0 +1,42 @@
+# Real Talos v1alpha1 machine config structure (paths match `talosctl gen
+# config`). Secret values are replaced with MARKER-* placeholders so this
+# fixture carries no real keys; the test asserts every MARKER-* disappears and
+# every PUBLIC-*/plain value survives.
+version: v1alpha1
+machine:
+    type: controlplane
+    token: MARKER-machine-token
+    ca:
+        crt: PUBLIC-machine-ca-crt
+        key: MARKER-machine-ca-key
+    install:
+        disk: /dev/sda
+    kubelet:
+        extraArgs:
+            max-pods: "200"
+    network:
+        hostname: cp-01
+        interfaces:
+            - interface: wg0
+              wireguard:
+                  privateKey: MARKER-wg-privatekey
+                  peers:
+                      - publicKey: MARKER-wg-publickey
+                        presharedKey: MARKER-wg-preshared
+                        endpoint: 10.0.0.2:51820
+cluster:
+    id: MARKER-cluster-id
+    secret: MARKER-cluster-secret
+    token: MARKER-cluster-token
+    ca:
+        crt: PUBLIC-cluster-ca-crt
+        key: MARKER-cluster-ca-key
+    aggregatorCA:
+        crt: PUBLIC-cluster-aggregatorca-crt
+        key: MARKER-cluster-aggregatorca-key
+    serviceAccount:
+        key: MARKER-cluster-sa-key
+    etcd:
+        ca:
+            crt: PUBLIC-cluster-etcd-ca-crt
+            key: MARKER-cluster-etcd-ca-key

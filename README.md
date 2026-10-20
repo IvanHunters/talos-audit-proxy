@@ -120,7 +120,8 @@ Early scaffolding.
 
 - [x] `internal/audit`: method classifier + tests
 - [x] audit record schema + file sink + tests
+- [x] secret redaction for machine config (`internal/redact`)
 - [ ] mTLS termination and `CN` extraction
 - [ ] gRPC transparent director to upstream `apid`
-- [ ] `ApplyConfiguration` body capture and secret redaction
+- [ ] `ApplyConfiguration` body capture into audit records
 - [ ] deployment manifests
