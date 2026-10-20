@@ -1,3 +1,3 @@
-module github.com/aenix-org/talos-audit-proxy
+module github.com/IvanHunters/talos-audit-proxy
 
 go 1.25

@@ -20,7 +20,7 @@ func TestFileSinkWritesJSONLines(t *testing.T) {
 	recs := []Record{
 		{
 			Time:   time.Date(2026, 10, 18, 12, 0, 0, 0, time.UTC),
-			Actor:  "ivan.okhotnikov@aenix.io",
+			Actor:  "operator@example.com",
 			Roles:  []string{"os:admin"},
 			Source: "10.0.0.5:51000",
 			Method: "/machine.MachineService/ApplyConfiguration",
@@ -29,7 +29,7 @@ func TestFileSinkWritesJSONLines(t *testing.T) {
 		},
 		{
 			Time:   time.Date(2026, 10, 18, 12, 1, 0, 0, time.UTC),
-			Actor:  "ivan.okhotnikov@aenix.io",
+			Actor:  "operator@example.com",
 			Source: "10.0.0.5:51002",
 			Method: "/machine.MachineService/Reboot",
 			Class:  ClassMutating.String(),
@@ -131,7 +131,7 @@ func TestFileSinkConcurrentWrites(t *testing.T) {
 			defer wg.Done()
 			_ = sink.Write(Record{
 				Time:   time.Now(),
-				Actor:  "ivan.okhotnikov@aenix.io",
+				Actor:  "operator@example.com",
 				Source: "10.0.0.5:1",
 				Method: "/machine.MachineService/ApplyConfiguration",
 				Class:  ClassMutating.String(),
