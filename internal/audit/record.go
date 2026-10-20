@@ -11,7 +11,7 @@ import (
 // on which node, when". It is written as a single JSON line to the audit log.
 type Record struct {
 	Time   time.Time `json:"time"`
-	Actor  string    `json:"actor"`            // CN of the operator's client cert
+	Actor  string    `json:"actor"`            // operator identity (email SAN) from the client cert
 	Roles  []string  `json:"roles,omitempty"`  // Talos roles (cert Organization), e.g. os:admin
 	Source string    `json:"source"`           // operator's remote address
 	Method string    `json:"method"`           // gRPC full-method path
